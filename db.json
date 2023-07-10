@@ -17,15 +17,12 @@
     },
     {
       "title": "sadwdxz",
-      "id": 6
+      "id": 6,
+      "isDone": false
     },
     {
       "title": "sadasdsa",
       "id": 7
-    },
-    {
-      "title": "sdaas",
-      "id": 8
     }
   ]
 }
