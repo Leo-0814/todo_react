@@ -1,14 +1,24 @@
 import { Footer, Header, TodoCollection, TodoInput } from 'components';
 import { useEffect, useState } from 'react';
 import { getTodos, createTodo, patchTodo, deleteTodo } from '../api/todos';
+<<<<<<< HEAD
 import { checkPermission } from 'api/auth';
 import { useNavigate } from 'react-router-dom';
+=======
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from 'Context/authContext';
+>>>>>>> 23892ba (last commit)
 
 const TodoPage = () => {
   const [inputValue, setInputValue] = useState('');
   const [todos, setTodos] = useState([]);
   const navigate = useNavigate();
 
+<<<<<<< HEAD
+=======
+  const { isAuthenticated, currentMember } = useAuth()
+
+>>>>>>> 23892ba (last commit)
   function handleChange(value) {
     setInputValue(value);
   }
@@ -154,6 +164,7 @@ const TodoPage = () => {
   }, []);
 
   useEffect(() => {
+<<<<<<< HEAD
     const checkTokenIsValid = async () => {
       const authToken = localStorage.getItem('authToken');
 
@@ -169,11 +180,21 @@ const TodoPage = () => {
 
     checkTokenIsValid();
   }, [navigate]);
+=======
+    if (!isAuthenticated) {
+      navigate('/login')
+    }
+  }, [navigate, isAuthenticated]);
+>>>>>>> 23892ba (last commit)
 
   return (
     <div>
       TodoPage
+<<<<<<< HEAD
       <Header />
+=======
+      <Header username={currentMember?.name}/>
+>>>>>>> 23892ba (last commit)
       <TodoInput
         inputValue={inputValue}
         onChange={handleChange}

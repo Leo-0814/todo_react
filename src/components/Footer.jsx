@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
+=======
+import { useAuth } from 'Context/authContext';
+>>>>>>> 23892ba (last commit)
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
@@ -33,10 +37,17 @@ const StyledButton = styled.button`
 `;
 
 const Footer = ({ todos }) => {
+<<<<<<< HEAD
   const navigate = useNavigate();
   const handleClick = () => {
     localStorage.removeItem('authToken');
     navigate('/login');
+=======
+  const { logout }= useAuth()
+
+  const handleClick = () => {
+    logout()
+>>>>>>> 23892ba (last commit)
   };
   return (
     <StyledFooter>

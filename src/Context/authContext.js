@@ -12,9 +12,14 @@ const defaultAuthContext = {
 };
 
 const AuthContext = createContext(defaultAuthContext);
+<<<<<<< HEAD
 
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = (children) => {
+=======
+export const useAuth = () => useContext(AuthContext);
+export const AuthProvider = ({children}) => {
+>>>>>>> 23892ba (last commit)
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [payload, setPayload] = useState(null);
   const pathname = useLocation();

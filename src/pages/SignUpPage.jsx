@@ -8,8 +8,13 @@ import { ACLogoIcon } from 'assets/images';
 import { AuthInput } from 'components';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
 import { checkPermission, register } from 'api/auth';
 import Swal from 'sweetalert2';
+=======
+import Swal from 'sweetalert2';
+import { useAuth } from 'Context/authContext';
+>>>>>>> 23892ba (last commit)
 
 const SignUpPage = () => {
   const [username, setUsername] = useState('');
@@ -17,19 +22,31 @@ const SignUpPage = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+<<<<<<< HEAD
+=======
+  const { register, isAuthenticated }= useAuth()
+
+>>>>>>> 23892ba (last commit)
   const handleClick = async () => {
     if (username.length === 0 || password.length === 0 || email.length === 0) {
       return;
     }
     try {
+<<<<<<< HEAD
       const { success, authToken } = await register({
+=======
+      const success = await register({
+>>>>>>> 23892ba (last commit)
         username,
         email,
         password,
       });
 
       if (success) {
+<<<<<<< HEAD
         localStorage.setItem('authToken', authToken);
+=======
+>>>>>>> 23892ba (last commit)
         Swal.fire({
           position: 'top',
           title: '註冊成功！',
@@ -37,7 +54,10 @@ const SignUpPage = () => {
           icon: 'success',
           showConfirmButton: false,
         });
+<<<<<<< HEAD
         navigate('/todos');
+=======
+>>>>>>> 23892ba (last commit)
         return;
       }
       Swal.fire({
@@ -53,6 +73,7 @@ const SignUpPage = () => {
   };
 
   useEffect(() => {
+<<<<<<< HEAD
     const checkTokenIsValid = async () => {
       const authToken = localStorage.getItem('authToken');
 
@@ -68,6 +89,12 @@ const SignUpPage = () => {
 
     checkTokenIsValid();
   }, [navigate]);
+=======
+    if (isAuthenticated) {
+      navigate('/todos')
+    }
+  }, [navigate, isAuthenticated]);
+>>>>>>> 23892ba (last commit)
 
   return (
     <AuthContainer>
